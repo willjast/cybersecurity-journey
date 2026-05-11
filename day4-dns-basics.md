@@ -47,3 +47,47 @@ Maps a domain name to an IPv4 address.
 Example:
 ```bash
 nslookup --type=A example.com
+```
+
+### CNAME Record
+Points one domain name to another domain name.
+
+Example:
+```bash
+nslookup --type=CNAME example.com
+```
+
+### MX Record
+Shows which mail servers handle email for a domain.
+
+Example:
+```bash
+nslookup --type=MX example.com
+```
+
+### TXT Record
+Often used for verification, email security, and domain ownership.
+
+Example:
+```bash
+nslookup --type=TXT example.com
+```
+
+---
+
+## Commanmds Practiced
+
+```bash
+nslookup example.com
+nslookup --type=A example.com
+nslookup --type=CNAME example.com
+nslookup --type=MX example.com
+nslookup --type=TXT example.com
+```
+
+## Key Takeaway
+
+DNS translates domain names into IP addresses so devices can locate websites and internet services.
+
+
+
