@@ -47,6 +47,7 @@ Examples:
 # Windows Filesystem Navigation
 
 ## Show Current Directory
+
 ```cmd
 cd
 ```
@@ -55,6 +56,7 @@ Purpose:
 - display current location/path
 
 Linux equivalent:
+
 ```bash
 pwd
 ```
@@ -62,6 +64,7 @@ pwd
 ---
 
 ## List Files and Folders
+
 ```cmd
 dir
 ```
@@ -70,6 +73,7 @@ Purpose:
 - list files and directories
 
 Linux equivalent:
+
 ```bash
 ls
 ```
@@ -77,17 +81,29 @@ ls
 ---
 
 ## Show Hidden Files and Folders
+
 ```cmd
 dir /a
 ```
 
+Purpose:
+- show all files and folders, including hidden ones
+
+Linux equivalent:
+
+```bash
+ls -al
+```
+
 Learned:
 - hidden files are not necessarily secret
+- hidden files in Linux usually start with a dot, like `.bashrc`
 - attackers and analysts both inspect hidden files
 
 ---
 
 ## Change Directory
+
 ```cmd
 cd foldername
 ```
@@ -95,10 +111,26 @@ cd foldername
 Purpose:
 - move into another folder
 
+Linux equivalent:
+
+```bash
+cd foldername
+```
+
 ---
 
 ## Move To Parent Directory
+
 ```cmd
+cd ..
+```
+
+Purpose:
+- move to parent directory
+
+Linux equivalent:
+
+```bash
 cd ..
 ```
 
@@ -110,11 +142,16 @@ Learned:
 ---
 
 ## Clear Screen
+
 ```cmd
 cls
 ```
 
+Purpose:
+- clear terminal screen
+
 Linux equivalent:
+
 ```bash
 clear
 ```
@@ -122,11 +159,16 @@ clear
 ---
 
 ## Read File Contents
+
 ```cmd
 type filename.txt
 ```
 
+Purpose:
+- display file contents inside terminal
+
 Linux equivalent:
+
 ```bash
 cat filename.txt
 ```
@@ -134,18 +176,22 @@ cat filename.txt
 ---
 
 ## Search Recursively For Files
+
 ```cmd
 dir /s filename.txt
 ```
 
-Learned:
-- /s searches subdirectories recursively
-- important for investigations and enumeration
+Purpose:
+- search subdirectories recursively
 
 Linux equivalent:
+
 ```bash
 find . -name filename.txt
 ```
+
+Learned:
+- recursive searching is important in investigations and enumeration
 
 ---
 
@@ -159,6 +205,7 @@ One of the most important concepts in cybersecurity.
 ---
 
 ## Current Logged-In User
+
 ```cmd
 whoami
 ```
@@ -171,6 +218,7 @@ Learned:
 - permissions depend on current user
 
 Linux equivalent:
+
 ```bash
 whoami
 ```
@@ -178,6 +226,7 @@ whoami
 ---
 
 ## Computer Hostname
+
 ```cmd
 hostname
 ```
@@ -190,6 +239,7 @@ Learned:
 - important in enterprise environments
 
 Linux equivalent:
+
 ```bash
 hostname
 ```
@@ -197,6 +247,7 @@ hostname
 ---
 
 ## Windows System Information
+
 ```cmd
 systeminfo
 ```
@@ -213,9 +264,20 @@ Important fields:
 - OS Version
 - System Type
 
+Linux equivalents:
+
+```bash
+uname -a
+```
+
+```bash
+hostnamectl
+```
+
 ---
 
 ## Network Configuration
+
 ```cmd
 ipconfig
 ```
@@ -229,11 +291,13 @@ Learned about:
 - local/private IP addresses
 
 Linux equivalents:
+
 ```bash
 ip a
 ```
 
 or:
+
 ```bash
 ifconfig
 ```
@@ -259,11 +323,13 @@ ifconfig
 # Important Filesystem Differences
 
 ## Linux Path Separator
+
 ```bash
 /
 ```
 
 Example:
+
 ```bash
 /home/willj/Documents
 ```
@@ -271,11 +337,13 @@ Example:
 ---
 
 ## Windows Path Separator
+
 ```cmd
 \
 ```
 
 Example:
+
 ```cmd
 C:\Users\willj\Documents
 ```
@@ -285,84 +353,49 @@ C:\Users\willj\Documents
 # Linux Directory Symbols
 
 ## Current Directory
+
 ```bash
 .
 ```
 
 ## Parent Directory
+
 ```bash
 ..
 ```
 
 ## Home Directory
+
 ```bash
 ~
 ```
 
 ---
 
-# WSL (Windows Subsystem for Linux)
+# WSL Observation
 
-## Learned:
-- WSL runs Linux inside Windows
-- allows Bash/Linux commands on Windows
-- Linux and Windows filesystems can interact
-
----
-
-# Linux Home Directory
-```bash
-~
-```
-
-Usually:
-```bash
-/home/username
-```
-
-Best for:
-- Linux learning
-- scripts
-- cybersecurity tools
-- Bash practice
-
----
-
-# Mounted Windows Filesystem In Linux
+Learned that WSL allows Linux to access Windows filesystems.
 
 Example:
+
+Windows:
+```cmd
+C:\Users\willj
+```
+
+appears inside Linux as:
+
 ```bash
 /mnt/c/Users/willj
 ```
 
-Learned:
-- Windows drives are mounted into Linux
-- C:\ becomes /mnt/c
-- useful for accessing Windows files from Linux
+Observed differences between:
+- Linux home directory (`~`)
+- Windows filesystem paths exposed inside WSL
 
----
-
-# Practical WSL Commands Practiced
-
-## Show Current Directory
-```bash
-pwd
-```
-
-## Go To Home Directory
-```bash
-cd ~
-```
-
-## Move To Parent Directory
-```bash
-cd ..
-```
-
-## List Files
-```bash
-ls
-```
+Did not yet study:
+- manual mounting commands
+- Linux filesystem management
 
 ---
 
@@ -371,6 +404,7 @@ ls
 ## Learned Difference Between:
 
 ### Normal CMD
+
 ```cmd
 C:\Users\willj>
 ```
@@ -378,6 +412,7 @@ C:\Users\willj>
 and:
 
 ### Administrator CMD
+
 ```cmd
 Administrator: Command Prompt
 C:\Windows\System32>
@@ -400,6 +435,7 @@ Why:
 # Learned About sudo
 
 Linux:
+
 ```bash
 sudo command
 ```
@@ -416,16 +452,19 @@ Interesting finding:
 # File vs Folder Deletion
 
 ## Delete Files
+
 ```cmd
 del filename.txt
 ```
 
 ## Delete Directories/Folders
+
 ```cmd
 rmdir foldername
 ```
 
 or:
+
 ```cmd
 rd foldername
 ```
@@ -433,6 +472,86 @@ rd foldername
 Learned:
 - del targets files
 - rmdir/rd targets directories
+
+Linux equivalents:
+
+## Delete Files
+
+```bash
+rm filename.txt
+```
+
+## Delete Directories
+
+```bash
+rm -r foldername
+```
+
+---
+
+# Additional Linux Commands Reviewed
+
+## Show Current Directory
+
+```bash
+pwd
+```
+
+---
+
+## List Files
+
+```bash
+ls
+```
+
+---
+
+## Show Hidden Files
+
+```bash
+ls -al
+```
+
+---
+
+## Change Directory
+
+```bash
+cd foldername
+```
+
+---
+
+## Move To Parent Directory
+
+```bash
+cd ..
+```
+
+---
+
+## Move To Home Directory
+
+```bash
+cd ~
+```
+
+---
+
+## Read File Contents
+
+```bash
+cat filename.txt
+```
+
+---
+
+## Clear Terminal
+
+```bash
+clear
+```
 
 ---
 
@@ -470,6 +589,7 @@ Learned:
 ```
 
 vs:
+
 ```bash
 /mnt/c/Users/willj
 ```
@@ -492,6 +612,7 @@ vs:
 - System identification
 - Terminal usage
 - Shell behavior
+- Principle of least privilege
 
 ---
 
