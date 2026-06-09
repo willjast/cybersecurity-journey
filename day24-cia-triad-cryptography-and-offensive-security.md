@@ -1,4 +1,4 @@
-# Day 23 – CIA Triad, Cryptography, and Offensive Security
+# Day 24 – CIA Triad, Cryptography, and Offensive Security
 
 ## TryHackMe Rooms Completed
 
