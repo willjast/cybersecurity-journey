@@ -541,5 +541,3 @@ The registry matters in cybersecurity because it can contain startup and persist
 Today I learned how Windows provides many built-in tools for system configuration, troubleshooting, monitoring, and investigation.
 
 The most important tools for cybersecurity at this stage are Event Viewer, Services, Task Scheduler, Local Users and Groups, Command Prompt, System Information, Resource Monitor, and Registry Editor.
-
----
